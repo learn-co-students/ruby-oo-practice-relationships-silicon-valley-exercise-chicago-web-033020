@@ -3,9 +3,19 @@ require_relative '../config/environment.rb'
 def reload
   load 'config/environment.rb'
 end
-# Insert code here to run before hitting the binding.pry
-# This is a convenient place to define variables and/or set up new object instances,
-# so they will be available to test and play around with in your console
+
+deliveroo = Startup.new("Deliveroo", "Sam Gorick", "www.deliveroo.com")
+ben = Startup.new("A few Ben", "Claire Gorick", "www.compandben.com")
+
+claire = VentureCapitalist.new("Claire Dalling", 1000000000000)
+sam = VentureCapitalist.new("Sam", 5000)
+
+deliveroo.sign_contract(claire, "angel", 50000)
+deliveroo.sign_contract(sam, "angel", 10)
+deliveroo.sign_contract(sam, "angel", 10)
+deliveroo.sign_contract(sam, "angel", 10)
+deliveroo.sign_contract(sam, "angel", 10)
+deliveroo.sign_contract(sam, "angel", 10)
 
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line
