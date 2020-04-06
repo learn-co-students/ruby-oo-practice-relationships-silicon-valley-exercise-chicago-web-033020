@@ -1,6 +1,5 @@
 class Startup
-  attr_reader :founder 
-  attr_accessor :domain, :name
+  attr_reader :founder, :domain, :name
 
   @@all = []
 
@@ -15,9 +14,9 @@ class Startup
     @@all << self
   end
 
-  def pivot (name, domain)
-    self.name = name
-    self.domain = domain
+  def pivot(name, domain)
+    @name = name
+    @domain = domain
   end
 
   def self.find_by_name(founder_name)
@@ -38,19 +37,19 @@ class Startup
   end
 
   def num_funding_rounds
-    self.funding_rounds.length
+    funding_rounds.length
   end
 
   def total_funds
-    self.funding_rounds.map { |round| round.investment }.reduce(:+)
+    funding_rounds.map { |round| round.investment }.reduce(:+)
   end
 
   def investors
-    self.funding_rounds.map { |round| round.venture_capitalist}.uniq
+    funding_rounds.map { |round| round.venture_capitalist}.uniq
   end
 
   def big_investors
-    self.investors.select { |investor| investor.total_worth > 1000000000 }
+    investors.select { |investor| investor.total_worth > 1000000000 }
   end
 
 end

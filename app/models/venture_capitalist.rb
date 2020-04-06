@@ -27,15 +27,15 @@ class VentureCapitalist
   end
 
   def portfolio
-    self.funding_rounds.map { |round| round.startup}.uniq
+    funding_rounds.map { |round| round.startup}.uniq
   end
 
   def biggest_investment
-    self.funding_rounds.map { |round | round.investment}.max
+    funding_rounds.map { |round | round.investment}.max
   end
 
   def invested(domain)
-    total = self.funding_rounds.select { |round| round.startup.domain == domain }
+    total = funding_rounds.select { |round| round.startup.domain == domain }
     total.map { |round| round.investment }.reduce(:+)
   end
 
