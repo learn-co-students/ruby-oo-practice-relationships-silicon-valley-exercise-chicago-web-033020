@@ -32,6 +32,7 @@ class Startup
     FundingRound.new(self, venture_capitalist, investment_type, amount_invested)
   end
 
+  # Helper method that selects all funding rounds for a particular start-up
   def funding_rounds
     FundingRound.all.select { |round| round.startup == self }
   end
@@ -41,8 +42,7 @@ class Startup
   end
 
   def total_funds
-    funds = self.funding_rounds.map { |round| round.investment }
-    funds.reduce(:+)
+    self.funding_rounds.map { |round| round.investment }.reduce(:+)
   end
 
   def investors

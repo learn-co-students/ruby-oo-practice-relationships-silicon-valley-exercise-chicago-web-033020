@@ -21,6 +21,7 @@ class VentureCapitalist
     FundingRound.new(startup, self, investment_type, amount_invested)
   end
 
+  # Helper method that retrieves all funding rounds for the relevant venture_capitalist instance
   def funding_rounds
     FundingRound.all.select { |round| round.venture_capitalist == self }
   end
